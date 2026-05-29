@@ -1,0 +1,185 @@
+{
+  "quizzes": [
+    {
+      "id": "dbms-foundations",
+      "title": "DBMS Foundations Practice",
+      "description": "A quiz covering database management systems foundations, SQL, transactions, normalization, and indexing.",
+      "question_count": 6,
+      "points_possible": 6,
+      "allowed_attempts": "Unlimited",
+      "time_limit_mins": 15
+    },
+    {
+      "id": "advanced-dbms",
+      "title": "Advanced SQL & Query Optimization",
+      "description": "An advanced quiz covering query execution plans, B+ tree indexes, window functions, and transaction isolation levels.",
+      "question_count": 6,
+      "points_possible": 6,
+      "allowed_attempts": "Unlimited",
+      "time_limit_mins": 15
+    }
+  ],
+  "questions": [
+    {
+      "id": "mc-dbms-primary-key",
+      "quiz_id": "dbms-foundations",
+      "question_type": "multiple_choice_question",
+      "question_text": "<p>Which of the following database constraints uniquely identifies each record in a table and cannot contain NULL values?</p>",
+      "points_possible": 1,
+      "choices": [
+        { "id": "choice-pk-fk", "choice_text": "Foreign Key" },
+        { "id": "choice-pk-uk", "choice_text": "Unique Key" },
+        { "id": "choice-pk-pk", "choice_text": "Primary Key" },
+        { "id": "choice-pk-cc", "choice_text": "Check Constraint" }
+      ],
+      "correct_choices": ["choice-pk-pk"],
+      "explanation": "A Primary Key constraint uniquely identifies each record in a database table. Unlike Unique Keys, Primary Keys strictly forbid NULL values."
+    },
+    {
+      "id": "tf-dbms-acid",
+      "quiz_id": "dbms-foundations",
+      "question_type": "true_false_question",
+      "question_text": "<p>True or false: In the context of database transactions, the 'Atomicity' property ensures that either all operations of a transaction are executed successfully, or none of them are.</p>",
+      "points_possible": 1,
+      "choices": [
+        { "id": "tf-acid-true", "choice_text": "True" },
+        { "id": "tf-acid-false", "choice_text": "False" }
+      ],
+      "correct_choices": ["tf-acid-true"],
+      "explanation": "Atomicity is the 'all-or-nothing' property of transactions, ensuring that incomplete transactions are completely rolled back in case of failures."
+    },
+    {
+      "id": "ma-dbms-acid-properties",
+      "quiz_id": "dbms-foundations",
+      "question_type": "multiple_answers_question",
+      "question_text": "<p>Select all properties that constitute the ACID model in transactional database management systems.</p>",
+      "points_possible": 1,
+      "choices": [
+        { "id": "ma-acid-a", "choice_text": "Atomicity" },
+        { "id": "ma-acid-c", "choice_text": "Consistency" },
+        { "id": "ma-acid-i", "choice_text": "Isolation" },
+        { "id": "ma-acid-d", "choice_text": "Durability" },
+        { "id": "ma-acid-r", "choice_text": "Redundancy" }
+      ],
+      "correct_choices": ["ma-acid-a", "ma-acid-c", "ma-acid-i", "ma-acid-d"],
+      "explanation": "ACID stands for Atomicity, Consistency, Isolation, and Durability. Redundancy is not a part of the ACID properties."
+    },
+    {
+      "id": "fib-dbms-sql",
+      "quiz_id": "dbms-foundations",
+      "question_type": "short_answer_question",
+      "question_text": "<p>Fill in the blank: The SQL clause used to filter the groups returned by a GROUP BY clause based on a specified condition is ____.</p>",
+      "points_possible": 1,
+      "choices": [
+        { "id": "fib-sql-having", "choice_text": "HAVING" }
+      ],
+      "correct_choices": ["HAVING"],
+      "explanation": "The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions; HAVING filters grouped rows."
+    },
+    {
+      "id": "essay-dbms-normalization",
+      "quiz_id": "dbms-foundations",
+      "question_type": "essay_question",
+      "question_text": "<p>Explain the primary purpose of database normalization and briefly describe the difference between First Normal Form (1NF) and Second Normal Form (2NF).</p>",
+      "points_possible": 1,
+      "choices": [],
+      "correct_choices": [],
+      "explanation": "A complete response should mention that database normalization minimizes data redundancy and avoids update anomalies. 1NF requires atomic values (no repeating groups), while 2NF requires 1NF compliance and that all non-key attributes are fully functionally dependent on the entire primary key (no partial dependencies)."
+    },
+    {
+      "id": "mc-dbms-joins",
+      "quiz_id": "dbms-foundations",
+      "question_type": "multiple_choice_question",
+      "question_text": "<p>Which type of JOIN returns all records from the left table and the matched records from the right table, filling in NULL for missing matches on the right side?</p>",
+      "points_possible": 1,
+      "choices": [
+        { "id": "choice-join-inner", "choice_text": "INNER JOIN" },
+        { "id": "choice-join-left", "choice_text": "LEFT OUTER JOIN" },
+        { "id": "choice-join-right", "choice_text": "RIGHT OUTER JOIN" },
+        { "id": "choice-join-full", "choice_text": "FULL OUTER JOIN" }
+      ],
+      "correct_choices": ["choice-join-left"],
+      "explanation": "A LEFT JOIN (or LEFT OUTER JOIN) returns all rows from the left table, and the matched rows from the right table. If there is no match, the result is NULL on the right side."
+    },
+    {
+      "id": "mc-adv-indexes",
+      "quiz_id": "advanced-dbms",
+      "question_type": "multiple_choice_question",
+      "question_text": "<p>Which database index structure is highly optimized for range queries and sorting because its leaf nodes form a doubly linked list?</p>",
+      "points_possible": 1,
+      "choices": [
+        { "id": "choice-idx-bplus", "choice_text": "B+ Tree Index" },
+        { "id": "choice-idx-hash", "choice_text": "Hash Index" },
+        { "id": "choice-idx-bitmap", "choice_text": "Bitmap Index" },
+        { "id": "choice-idx-inverted", "choice_text": "Inverted Index" }
+      ],
+      "correct_choices": ["choice-idx-bplus"],
+      "explanation": "B+ Trees keep their keys in sorted order, and leaf nodes are linked sequentially, which makes scanning a range of keys extremely efficient compared to Hash Indexes which only support point lookups."
+    },
+    {
+      "id": "tf-adv-clustered",
+      "quiz_id": "advanced-dbms",
+      "question_type": "true_false_question",
+      "question_text": "<p>True or false: A database table can have multiple clustered indexes because the leaf nodes of a clustered index store the actual data rows.</p>",
+      "points_possible": 1,
+      "choices": [
+        { "id": "tf-clustered-true", "choice_text": "True" },
+        { "id": "tf-clustered-false", "choice_text": "False" }
+      ],
+      "correct_choices": ["tf-clustered-false"],
+      "explanation": "A table can only have one clustered index because the clustered index determines the physical storage order of the data itself. You cannot store the rows sorted in more than one order simultaneously."
+    },
+    {
+      "id": "ma-adv-window",
+      "quiz_id": "advanced-dbms",
+      "question_type": "multiple_answers_question",
+      "question_text": "<p>Select all of the following SQL functions that are categorized as window (analytic) functions and require an OVER clause.</p>",
+      "points_possible": 1,
+      "choices": [
+        { "id": "ma-window-rank", "choice_text": "RANK()" },
+        { "id": "ma-window-dense-rank", "choice_text": "DENSE_RANK()" },
+        { "id": "ma-window-rownum", "choice_text": "ROW_NUMBER()" },
+        { "id": "ma-window-coalesce", "choice_text": "COALESCE()" }
+      ],
+      "correct_choices": ["ma-window-rank", "ma-window-dense-rank", "ma-window-rownum"],
+      "explanation": "RANK(), DENSE_RANK(), and ROW_NUMBER() are standard SQL window functions used for ranking items within a partition. COALESCE() is a scalar function that returns the first non-null argument and does not use an OVER clause."
+    },
+    {
+      "id": "fib-adv-partition",
+      "quiz_id": "advanced-dbms",
+      "question_type": "short_answer_question",
+      "question_text": "<p>Fill in the blank: Inside an OVER clause of a window function, the sub-clause used to divide the query result set into partitions to which the function is applied is called ____ BY.</p>",
+      "points_possible": 1,
+      "choices": [
+        { "id": "fib-partition-term", "choice_text": "PARTITION" }
+      ],
+      "correct_choices": ["PARTITION"],
+      "explanation": "The PARTITION BY sub-clause divides the result set into partitions, and the window function is calculated separately for each partition."
+    },
+    {
+      "id": "essay-adv-optimization",
+      "quiz_id": "advanced-dbms",
+      "question_type": "essay_question",
+      "question_text": "<p>Explain the difference between a Table Scan and an Index Scan in the context of query optimization, and describe when a database engine might prefer a Table Scan over using an index.</p>",
+      "points_possible": 1,
+      "choices": [],
+      "correct_choices": [],
+      "explanation": "A Table Scan reads all data blocks in a table sequentially, whereas an Index Scan traverses an index tree to find matching entries. An optimizer might prefer a Table Scan if the query asks for a large percentage of the table's rows (making sequential I/O faster than index lookups + random data block reads), or if the table is small enough to fit within a single disk block."
+    },
+    {
+      "id": "mc-adv-isolation",
+      "quiz_id": "advanced-dbms",
+      "question_type": "multiple_choice_question",
+      "question_text": "<p>Which SQL transaction isolation level completely prevents Dirty Reads, Non-repeatable Reads, and Phantom Reads by locking entire ranges of rows?</p>",
+      "points_possible": 1,
+      "choices": [
+        { "id": "choice-iso-read-uncommitted", "choice_text": "Read Uncommitted" },
+        { "id": "choice-iso-read-committed", "choice_text": "Read Committed" },
+        { "id": "choice-iso-repeatable-read", "choice_text": "Repeatable Read" },
+        { "id": "choice-iso-serializable", "choice_text": "Serializable" }
+      ],
+      "correct_choices": ["choice-iso-serializable"],
+      "explanation": "SERIALIZABLE is the highest isolation level. It prevents all three anomalies by securing range locks (often via key-range locking) to guarantee that serializable executions are equivalent to some serial execution."
+    }
+  ]
+}
